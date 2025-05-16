@@ -148,7 +148,7 @@ def load_config(model_path: Union[str, Path], **kwargs) -> dict:
 
 
 def load_model(
-    model_path: str | Path, lazy: bool = False, strict: bool = True, **kwargs
+    model_path: Union[str, Path], lazy: bool = False, strict: bool = True, **kwargs
 ) -> nn.Module:
     """
     Load and initialize the model from a given path.
