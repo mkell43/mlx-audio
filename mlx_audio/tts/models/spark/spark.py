@@ -2,7 +2,7 @@ import re
 import time
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Dict, Optional, Tuple, Union
+from typing import Dict, Generator, Optional, Tuple, Union
 
 import mlx.core as mx
 import mlx.nn as nn
@@ -219,7 +219,7 @@ class Model(nn.Module):
         verbose: bool = False,
         split_pattern: str = "\n",
         **kwargs,
-    ) -> GenerationResult:
+    ) -> Generator[GenerationResult, None, None]:
         """
         Performs inference to generate speech from text, incorporating prompt audio and/or text.
 
@@ -235,7 +235,7 @@ class Model(nn.Module):
             top_p (float, optional): Top-p (nucleus) sampling parameter. Default is 0.95.
 
         Returns:
-            GenerationResult: Generated waveform as a tensor.
+            Generator[GenerationResult, None, None]: Generated waveform as a tensor.
         """
 
         speed_factor = SPEED_MAP[speed]
