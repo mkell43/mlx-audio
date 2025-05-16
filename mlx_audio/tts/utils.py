@@ -148,13 +148,13 @@ def load_config(model_path: Union[str, Path], **kwargs) -> dict:
 
 
 def load_model(
-    model_path: Path, lazy: bool = False, strict: bool = True, **kwargs
+    model_path: str | Path, lazy: bool = False, strict: bool = True, **kwargs
 ) -> nn.Module:
     """
     Load and initialize the model from a given path.
 
     Args:
-        model_path (Path): The path to load the model from.
+        model_path (str | Path): The path to load the model from.
         lazy (bool): If False eval the model parameters to make sure they are
             loaded in memory before returning, otherwise they will be loaded
             when needed. Default: ``False``
